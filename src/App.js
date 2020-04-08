@@ -8,6 +8,12 @@ import {AppStateProvider} from './hooks/appState';
 import {spritemap} from './Icon';
 
 const App = props => {
+
+	//FIXME !
+	const themeDisplay = {
+		isSignedIn: () => true
+	}
+
 	const isSignedIn = themeDisplay.isSignedIn();
 
 	return (
