@@ -35,7 +35,7 @@ const CFInput = props => {
 		>
 			<label htmlFor={name}>
 				{name}
-				{!!required && 
+				{!!required &&
 					<Icon className="reference-mark" symbol="asterisk" />
 				}
 			</label>
