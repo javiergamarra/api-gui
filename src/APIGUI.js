@@ -1,4 +1,4 @@
-import React, {useEffect, useMemo, useState} from 'react';
+import React, {useEffect} from 'react';
 
 import ClayForm, {ClayInput, ClaySelect} from '@clayui/form';
 import ClayAlert from '@clayui/alert';
@@ -17,7 +17,7 @@ const APIDisplayStyle = {
 	overflowY: 'scroll'
 };
 
-const APIGUI = props => {
+const APIGUI = () => {
 	const [state, dispatch] = useAppState();
 
 	const {
@@ -59,7 +59,7 @@ const APIGUI = props => {
 				if (current) {
 					var categories = {};
 
-					Object.keys(res).map(key => {
+					Object.keys(res).forEach(key => {
 						categories[key] = res[key].map(url => url.replace('openapi.yaml', 'openapi.json'));
 					});
 
@@ -72,7 +72,7 @@ const APIGUI = props => {
 		);
 
 		return () => (current = false);
-	}, []);
+	}, [dispatch]);
 
 	useEffect(() => {
 		let current = true;
@@ -93,7 +93,7 @@ const APIGUI = props => {
 		}
 
 		return () => (current = false);
-	}, [categoryKey, categories])
+	}, [categoryKey, categories, dispatch])
 
 	return (
 		<div className="api-gui-root">
@@ -105,8 +105,7 @@ const APIGUI = props => {
 								<span>{'Select API Category'}</span>								
 
 								{schemas &&
-									<a
-										href="javascript:;"
+									<button
 										onClick={() => {
 											dispatch({
 												type: 'TOGGLE_SCHEMAS'
@@ -114,7 +113,7 @@ const APIGUI = props => {
 										}}
 									>
 										{showSchemas ? 'Hide Schemas' : 'Show Schemas'}
-									</a>
+									</button>
 								}
 							</label>
 							<ClaySelect

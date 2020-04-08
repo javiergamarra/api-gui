@@ -12,7 +12,7 @@ export const getSearchParams = (params = [], values) => {
 	params.forEach(function (param) {
 		const value = values[param.name];
 
-		if (param.in == 'query' && value) {
+		if (param.in === 'query' && value) {
 			searchParams.set(param.name, value);
 		}
 	});
@@ -29,7 +29,7 @@ export const getURL = ({baseURL, path, params, values}) => {
 export const replaceParams = (path, params, values) => {
 	if (params) {
 		params.forEach(param => {
-			if (param.in == 'path') {
+			if (param.in === 'path') {
 				path = path.replace(`{${param.name}}`, values[param.name]);
 			}
 		});

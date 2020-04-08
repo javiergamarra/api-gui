@@ -2,7 +2,6 @@ import React, {useEffect, useRef} from 'react';
 
 const PathList = props => {
 	const {
-		baseURL,
 		curPath,
 		filter,
 		onClick,
@@ -29,10 +28,10 @@ const PathList = props => {
 		<>
 			{pathKeys.map(path => (
 				<button
-					className={`btn btn-block ${path == curPath ? 'btn-primary' : 'btn-secondary'} mb-3 text-left`}
+					className={`btn btn-block ${path === curPath ? 'btn-primary' : 'btn-secondary'} mb-3 text-left`}
 					key={path}
 					onClick={() => onClick(path)}
-					ref={path == curPath ? selectedPathEl : null}
+					ref={path === curPath ? selectedPathEl : null}
 					type="button"
 				>
 					{path}

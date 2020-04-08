@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 
 import ClayTabs from '@clayui/tabs';
 
@@ -22,8 +22,7 @@ const APIDisplay = () => {
 		method,
 		path,
 		paths,
-		requestBodyData,
-		schemas
+		requestBodyData
 	} = state;
 
 	const [tabIndex, setTabIndex] = useState(0);
@@ -55,7 +54,7 @@ const APIDisplay = () => {
 							}}
 							style={badgeStyle}
 						>
-							<MethodBadge className={'flex-shrink-0'} displayType={key != method ? 'secondary' : null} method={key} />
+							<MethodBadge className={'flex-shrink-0'} displayType={key !== method ? 'secondary' : null} method={key} />
 						</button>
 					))}
 				</div>
@@ -74,7 +73,7 @@ const APIDisplay = () => {
 					<ClayTabs>
 						{tabs.map((tab, i) => (
 							<ClayTabs.Item
-								active={tabIndex == i}
+								active={tabIndex === i}
 								innerProps={{
 									"aria-controls": `tabpanel-${i + 1}`
 								}}

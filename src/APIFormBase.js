@@ -1,9 +1,8 @@
 import React, {useEffect} from 'react';
 
-import ClayForm, {ClayInput} from '@clayui/form';
+import ClayForm from '@clayui/form';
 import ClayButton from '@clayui/button';
 import {withFormik} from 'formik';
-import get from 'lodash.get';
 
 import CFInput from './form/CFInput';
 import fetch from './util/fetch';
@@ -26,6 +25,7 @@ const schemaIterator = (schema, iterator) => {
 					type: property.type
 				});
 			}
+			return null;
 		});
 	}
 }
@@ -63,7 +63,7 @@ const APIFormBase = props => {
 					<h3 className="sheet-subtitle">{`Request Body (${contentType}: ${schemaType})`}</h3>
 				}
 
-				{schemaType == 'object' &&
+				{schemaType === 'object' &&
 					<CFInput component="textarea" name="jsonObject" required={false} type={schemaType} />
 				}
 
@@ -88,7 +88,7 @@ const APIFormBase = props => {
 
 const formikAPIForm = withFormik({
 	mapPropsToValues: ({methodData, schema}) => {
-		const {operationId, parameters, requestBody} = methodData;
+		const {operationId, parameters} = methodData;
 
 		const initialValues = {};
 

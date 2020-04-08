@@ -40,7 +40,7 @@ const fetch = (url, method = 'get', data, contentType) => {
 		res => {
 			let retVal;
 
-			if (method == 'delete' && res.status == 204) {
+			if (method === 'delete' && res.status === 204) {
 				retVal = 'Deleted Successfully';
 			}
 			else {
