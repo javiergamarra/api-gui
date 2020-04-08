@@ -8,7 +8,7 @@ const METHOD_DISPLAY_MAP = {
 	'put': 'warning',
 	'patch': 'info',
 	'delete': 'danger'
-}
+};
 
 const MethodBadge = (props) => {
 	const {displayType, method, ...otherProps} = props;
@@ -20,6 +20,6 @@ const MethodBadge = (props) => {
 			{...otherProps}
 		/>
 	);
-}
+};
 
 export default MethodBadge;

@@ -32,8 +32,9 @@ const APIDisplay = () => {
 	const methodData = pathData[method];
 
 	const tabs = [
-		['Response', <ResponseDisplay response={apiResponse} />],
-		['Javascript Example', <JavascriptExample contentType={contentType} data={requestBodyData} method={method} url={apiURL} />]
+		['Response', <ResponseDisplay response={apiResponse}/>],
+		['Javascript Example',
+			<JavascriptExample contentType={contentType} data={requestBodyData} method={method} url={apiURL}/>]
 	];
 
 	return (
@@ -50,52 +51,53 @@ const APIDisplay = () => {
 								dispatch({
 									method: key,
 									type: 'SELECT_METHOD'
-								})
+								});
 							}}
 							style={badgeStyle}
 						>
-							<MethodBadge className={'flex-shrink-0'} displayType={key !== method ? 'secondary' : null} method={key} />
+							<MethodBadge className={'flex-shrink-0'} displayType={key !== method ? 'secondary' : null}
+										 method={key}/>
 						</button>
 					))}
 				</div>
 
 				{methodData.description &&
-					<div className="sheet-text">{methodData.description}</div>
+				<div className="sheet-text">{methodData.description}</div>
 				}
 			</div>
 
-			<APIForm />
+			<APIForm/>
 
 			{apiResponse &&
-				<div className="sheet-section">
-					<h3 className="sheet-subtitle">{'Response'}</h3>
+			<div className="sheet-section">
+				<h3 className="sheet-subtitle">{'Response'}</h3>
 
-					<ClayTabs>
-						{tabs.map((tab, i) => (
-							<ClayTabs.Item
-								active={tabIndex === i}
-								innerProps={{
-									"aria-controls": `tabpanel-${i + 1}`
-								}}
-								key={i}
-								onClick={() => setTabIndex(i)}
-							>
-								{tab[0]}
-							</ClayTabs.Item>
-						))}
-					</ClayTabs>
+				<ClayTabs>
+					{tabs.map((tab, i) => (
+						<ClayTabs.Item
+							active={tabIndex === i}
+							innerProps={{
+								'aria-controls': `tabpanel-${i + 1}`
+							}}
+							key={i}
+							onClick={() => setTabIndex(i)}
+						>
+							{tab[0]}
+						</ClayTabs.Item>
+					))}
+				</ClayTabs>
 
-					<ClayTabs.Content activeIndex={tabIndex}>
-						{tabs.map((tab, i) => (
-							<ClayTabs.TabPane aria-labelledby={`tab-${i + 1}`} key={i}>
-								{tab[1]}
-							</ClayTabs.TabPane>
-						))}
-					</ClayTabs.Content>
-				</div>
+				<ClayTabs.Content activeIndex={tabIndex}>
+					{tabs.map((tab, i) => (
+						<ClayTabs.TabPane aria-labelledby={`tab-${i + 1}`} key={i}>
+							{tab[1]}
+						</ClayTabs.TabPane>
+					))}
+				</ClayTabs.Content>
+			</div>
 			}
 		</div>
 	);
-}
+};
 
 export default APIDisplay;

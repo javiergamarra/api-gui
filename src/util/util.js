@@ -1,6 +1,6 @@
 export const isObject = (tempVar) => {
 	return typeof tempVar === 'object' && tempVar !== null;
-}
+};
 
 const REQUEST_BODY_TYPES = [
 	'application/json',
@@ -23,15 +23,14 @@ export const getSchemaType = (requestBody) => {
 
 		if (schema['$ref']) {
 			schemaType = schema['$ref'].replace('#/components/schemas/', '');
-		}
-		else {
+		} else {
 			schemaType = schema.type;
 		}
 	}
 
 	return schemaType;
-}
+};
 
 export const stringify = json => {
 	return JSON.stringify(json, null, 4);
-}
+};

@@ -28,7 +28,7 @@ const schemaIterator = (schema, iterator) => {
 			return null;
 		});
 	}
-}
+};
 
 const APIFormBase = props => {
 	const {
@@ -52,23 +52,23 @@ const APIFormBase = props => {
 		<form onSubmit={handleSubmit}>
 			<div className="sheet-section">
 				{parameters &&
-					<h3 className="sheet-subtitle">{'Parameters'}</h3>
+				<h3 className="sheet-subtitle">{'Parameters'}</h3>
 				}
 
 				{parameters && parameters.map(({name, required, schema}) => (
-					<CFInput key={name} name={name} required={required} type={schema.type} />
+					<CFInput key={name} name={name} required={required} type={schema.type}/>
 				))}
 
 				{requestBody &&
-					<h3 className="sheet-subtitle">{`Request Body (${contentType}: ${schemaType})`}</h3>
+				<h3 className="sheet-subtitle">{`Request Body (${contentType}: ${schemaType})`}</h3>
 				}
 
 				{schemaType === 'object' &&
-					<CFInput component="textarea" name="jsonObject" required={false} type={schemaType} />
+				<CFInput component="textarea" name="jsonObject" required={false} type={schemaType}/>
 				}
 
 				{schemaIterator(schema, ({defaultVal, name, required, type}) => (
-					<CFInput key={name} name={name} placeholder={defaultVal} required={required} type={type} />
+					<CFInput key={name} name={name} placeholder={defaultVal} required={required} type={type}/>
 				))}
 
 				<ClayForm.Group className="mt-5">
@@ -132,7 +132,7 @@ const formikAPIForm = withFormik({
 			onResponse,
 			path,
 			schema
-		} = props
+		} = props;
 
 		const data = {};
 
@@ -146,19 +146,19 @@ const formikAPIForm = withFormik({
 			});
 		}
 
-		const apiURL = getURL({baseURL, path, params: parameters, values})
+		const apiURL = getURL({baseURL, path, params: parameters, values});
 
 		fetch(apiURL, method, data, contentType).then(response => {
 			onResponse({
 				apiURL,
 				data,
 				response
-			})
+			});
 
 			setSubmitting(false);
 		});
 	},
-	displayName: 'APIFormBase',
+	displayName: 'APIFormBase'
 })(APIFormBase);
 
 export default formikAPIForm;

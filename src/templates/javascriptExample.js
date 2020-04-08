@@ -2,10 +2,10 @@ import {stringify} from '../util/util';
 
 const stringOrNull = string => {
 	return string ? `'${string}'` : null;
-}
+};
 
 const javascriptExample = ({contentType, data, method, url}) => (
-`const contentType = ${stringOrNull(contentType)};
+	`const contentType = ${stringOrNull(contentType)};
 const data = ${stringify(data)};
 const method = '${method.toUpperCase()}';
 

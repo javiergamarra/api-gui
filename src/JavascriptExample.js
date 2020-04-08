@@ -15,6 +15,6 @@ const JavascriptExample = ({contentType, data, method, url}) => {
 			</div>
 		</div>
 	);
-}
+};
 
 export default JavascriptExample;

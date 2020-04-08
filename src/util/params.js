@@ -1,7 +1,7 @@
 const setSearchParamsWithoutPageReload = qs => {
 	const newurl = `${window.location.protocol}//${window.location.host}${window.location.pathname}?${qs}`;
 
-	window.history.pushState({ path: newurl }, "", newurl);
+	window.history.pushState({path: newurl}, '', newurl);
 };
 
 export const setSearchParam = (key, value) => {
@@ -9,13 +9,12 @@ export const setSearchParam = (key, value) => {
 
 	if (value && value.length > 0) {
 		searchParams.set(key, value);
-	}
-	else {
+	} else {
 		searchParams.delete(key);
 	}
 
 	setSearchParamsWithoutPageReload(searchParams.toString());
-}
+};
 
 export const getSearchParams = () => {
 	const newSearchParams = {};
@@ -29,10 +28,10 @@ export const getSearchParams = () => {
 	);
 
 	return newSearchParams;
-}
+};
 
 export const getSearchParam = key => {
 	const searchParams = new URLSearchParams(window.location.search);
 
 	return searchParams.get(key) || null;
-}
+};

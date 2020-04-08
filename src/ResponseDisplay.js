@@ -17,6 +17,6 @@ const ResponseDisplay = (props) => {
 			</div>
 		</div>
 	);
-}
+};
 
 export default ResponseDisplay;

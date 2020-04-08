@@ -1,15 +1,15 @@
 export const getCategoryURL = (categories, categoryKey) => {
 	return categories && categoryKey && categories ? categories[categoryKey][0] : '';
-}
+};
 
 export const getBaseURL = categoryURL => {
 	return categoryURL.replace('/v1.0/openapi.json', '');
-}
+};
 
 export const getSearchParams = (params = [], values) => {
 	var searchParams = new URLSearchParams();
 
-	params.forEach(function (param) {
+	params.forEach(function(param) {
 		const value = values[param.name];
 
 		if (param.in === 'query' && value) {

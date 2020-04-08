@@ -39,6 +39,6 @@ const PathList = props => {
 			))}
 		</>
 	);
-}
+};
 
 export default PathList;

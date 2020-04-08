@@ -6,10 +6,9 @@ const storageAvailable = (type) => {
 		storage.setItem(x, x);
 		storage.removeItem(x);
 		return true;
-	}
-	catch(e) {
+	} catch (e) {
 		return e instanceof DOMException && (
-			// everything except Firefox
+				// everything except Firefox
 			e.code === 22 ||
 			// Firefox
 			e.code === 1014 ||
@@ -21,17 +20,17 @@ const storageAvailable = (type) => {
 			// acknowledge QuotaExceededError only if there's something already stored
 			(storage && storage.length !== 0);
 	}
-}
+};
 
 export const generateKey = (key) => {
 	return `API_GUI_FORM_VALUES_${key}`;
-}
+};
 
 export const setLocalStorage = (key, values) => {
 	if (storageAvailable('localStorage')) {
 		localStorage.setItem(key, JSON.stringify(values));
 	}
-}
+};
 
 export const getLocalStorage = (key) => {
 	if (storageAvailable('localStorage')) {
@@ -43,4 +42,4 @@ export const getLocalStorage = (key) => {
 
 		return JSON.parse(item);
 	}
-}
+};

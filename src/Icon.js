@@ -14,6 +14,6 @@ const Icon = (props) => {
 			{...otherProps}
 		/>
 	);
-}
+};
 
 export default Icon;

@@ -12,8 +12,8 @@ const getContentType = requestBody => (
 	get(requestBody, 'content.multipart/form-data')
 		? 'multipart/form-data'
 		: get(requestBody, 'content.application/json')
-			? 'application/json'
-			: null
+		? 'application/json'
+		: null
 );
 
 const APIForm = props => {
@@ -25,7 +25,7 @@ const APIForm = props => {
 		method,
 		path,
 		paths,
-		schemas,
+		schemas
 	} = state;
 
 	const methodData = paths[path][method];
@@ -34,7 +34,7 @@ const APIForm = props => {
 
 	const schema = schemas[getSchemaType(requestBody)];
 
-	const baseURL = getBaseURL(getCategoryURL(categories, categoryKey))
+	const baseURL = getBaseURL(getCategoryURL(categories, categoryKey));
 
 	const contentType = useMemo(() => getContentType(requestBody), [requestBody]);
 

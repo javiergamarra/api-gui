@@ -36,7 +36,7 @@ const CFInput = props => {
 			<label htmlFor={name}>
 				{name}
 				{!!required &&
-					<Icon className="reference-mark" symbol="asterisk" />
+				<Icon className="reference-mark" symbol="asterisk"/>
 				}
 			</label>
 
@@ -57,9 +57,9 @@ const CFInput = props => {
 				</ClayInput.GroupItem>
 			</ClayInput.Group>
 
-			<CFErrorMessage name={name} />
+			<CFErrorMessage name={name}/>
 		</ClayForm.Group>
 	);
-}
+};
 
 export default connect(CFInput);

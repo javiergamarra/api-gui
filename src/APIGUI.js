@@ -93,7 +93,7 @@ const APIGUI = () => {
 		}
 
 		return () => (current = false);
-	}, [categoryKey, categories, dispatch])
+	}, [categoryKey, categories, dispatch]);
 
 	return (
 		<div className="api-gui-root">
@@ -105,15 +105,15 @@ const APIGUI = () => {
 								<span>{'Select API Category'}</span>
 
 								{schemas &&
-									<button
-										onClick={() => {
-											dispatch({
-												type: 'TOGGLE_SCHEMAS'
-											});
-										}}
-									>
-										{showSchemas ? 'Hide Schemas' : 'Show Schemas'}
-									</button>
+								<button
+									onClick={() => {
+										dispatch({
+											type: 'TOGGLE_SCHEMAS'
+										});
+									}}
+								>
+									{showSchemas ? 'Hide Schemas' : 'Show Schemas'}
+								</button>
 								}
 							</label>
 							<ClaySelect
@@ -146,7 +146,7 @@ const APIGUI = () => {
 									dispatch({
 										filter: event.target.value,
 										type: 'SET_FILTER'
-									})
+									});
 								}}
 								value={filter}
 							/>
@@ -154,41 +154,41 @@ const APIGUI = () => {
 
 						<div className="api-list border-top p-3" style={APIDisplayStyle}>
 							{paths &&
-								<PathList
-									baseURL={categoryKey}
-									curPath={path}
-									filter={filter}
-									onClick={selPath => {
-										dispatch({
-											path: selPath,
-											type: 'SELECT_PATH'
-										});
-									}}
-									paths={paths}
-								/>
+							<PathList
+								baseURL={categoryKey}
+								curPath={path}
+								filter={filter}
+								onClick={selPath => {
+									dispatch({
+										path: selPath,
+										type: 'SELECT_PATH'
+									});
+								}}
+								paths={paths}
+							/>
 							}
 						</div>
 					</div>
 
 					<div className="col col-md-7 border p-3 overflow-auto vh-100">
 						{paths && path && method && !showSchemas &&
-							<APIDisplay />
+						<APIDisplay/>
 						}
 
 						{!path &&
-							<ClayAlert displayType="info" spritemap={spritemap} title="Info">
-								{'Please select an API from the list on the left.'}
-							</ClayAlert>
+						<ClayAlert displayType="info" spritemap={spritemap} title="Info">
+							{'Please select an API from the list on the left.'}
+						</ClayAlert>
 						}
 
 						{showSchemas && schemas &&
-							<SchemaExplorer category={categoryKey} schemas={schemas} />
+						<SchemaExplorer category={categoryKey} schemas={schemas}/>
 						}
 					</div>
 				</div>
 			</div>
 		</div>
 	);
-}
+};
 
 export default APIGUI;

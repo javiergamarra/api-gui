@@ -24,6 +24,6 @@ const SchemaDisplay = ({name, schema}) => {
 			</ClayPanel.Body>
 		</ClayPanel>
 	);
-}
+};
 
 export default SchemaDisplay;

@@ -15,12 +15,11 @@ const fetch = (url, method = 'get', data, contentType) => {
 			request.headers = {
 				'Content-Type': 'application/json',
 				'Authorization': 'Basic dGVzdEBsaWZlcmF5LmNvbTp0ZXN0'
-			}
-		}
-		else if (contentType === 'multipart/form-data') {
-			const formData  = new FormData();
+			};
+		} else if (contentType === 'multipart/form-data') {
+			const formData = new FormData();
 
-			for(const name in data) {
+			for (const name of data) {
 				formData.append(name, data[name]);
 			}
 
@@ -42,14 +41,13 @@ const fetch = (url, method = 'get', data, contentType) => {
 
 			if (method === 'delete' && res.status === 204) {
 				retVal = 'Deleted Successfully';
-			}
-			else {
+			} else {
 				retVal = res.json();
 			}
 
 			return retVal;
 		}
 	);
-}
+};
 
 export default fetch;

@@ -100,8 +100,8 @@ const appStateReducer = (state, action) => {
 		default:
 			return state;
 	}
-}
+};
 
-export {initialState}
+export {initialState};
 
 export default appStateReducer;

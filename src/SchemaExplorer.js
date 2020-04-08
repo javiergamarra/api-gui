@@ -16,10 +16,10 @@ const SchemaExplorer = ({category, schemas}) => {
 			</div>
 
 			{Object.keys(schemas).map(key => (
-				<SchemaDisplay key={key} name={key} schema={schemas[key]} />
+				<SchemaDisplay key={key} name={key} schema={schemas[key]}/>
 			))}
 		</div>
 	);
-}
+};
 
 export default SchemaExplorer;
