@@ -54,7 +54,7 @@ const APIGUI = props => {
 	useEffect(() => {
 		let current = true;
 
-		fetch('/o/openapi', 'get', {}).then(
+		fetch('http://localhost:8080/o/openapi', 'get', {}).then(
 			res => {
 				if (current) {
 					var categories = {};

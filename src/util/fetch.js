@@ -10,8 +10,12 @@ const fetch = (url, method = 'get', data, contentType) => {
 			const headers = new Headers();
 
 			headers.append('Content-Type', contentType);
+			headers.append('Authorization', 'Basic dGVzdEBsaWZlcmF5LmNvbTp0ZXN0');
 
-			request.headers = headers;
+			request.headers = {
+				'Content-Type': 'application/json',
+				'Authorization': 'Basic dGVzdEBsaWZlcmF5LmNvbTp0ZXN0'
+			}
 		}
 		else if (contentType === 'multipart/form-data') {
 			const formData  = new FormData();
@@ -24,9 +28,14 @@ const fetch = (url, method = 'get', data, contentType) => {
 		}
 	}
 
-	return Liferay.Util.fetch(
+	return window.fetch(
 		url,
-		request
+		{
+			headers: {
+				'Content-Type': 'application/json',
+				'Authorization': 'Basic dGVzdEBsaWZlcmF5LmNvbTp0ZXN0'
+			}
+		}
 	).then(
 		res => {
 			let retVal;

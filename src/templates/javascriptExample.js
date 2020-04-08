@@ -34,7 +34,7 @@ if (method === 'POST' || method === 'PUT') {
 	}
 }
 
-Liferay.Util.fetch(
+fetch(
 	'${url}',
 	request
 ).then(
